@@ -1,0 +1,204 @@
+
+tags:
+- name: countries
+  description: countries API
+
+paths:
+
+#----countries-----------------
+
+# [GET] countries/admin/all
+  /countries/admin/all:
+    get:
+      tags:
+      - countries
+      summary: Find All countries
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer Token
+        required: true
+        type: string
+        format: "Bearer {token}"
+      - name: Search
+        in: query
+        description: |
+          Search Available for {"title", "description"}
+          Format: ?search=ABC..
+        required: false
+        type: string 
+      - name: Filters
+        in: query
+        description: |
+          Filter values that need to be considered for filter 
+          Format: ?school=ABC..
+        required: false
+        explode: true
+        type: string
+        default: --
+        enum:
+          - --
+          - --
+          - --         
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/countries'
+        500:
+          description: 'Server Error'
+
+# [POST] countries/admin/new
+  /countries/admin/new:
+    post:
+      tags:
+      - countries
+      summary: Add countries
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer Token
+        required: true
+        type: string
+        format: "Bearer {token}"
+      - name: body
+        in: body
+        description: countries Data
+        required: true
+        schema:
+          $ref: '#/definitions/countries'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [GET] countries/admin/id
+  /countries/admin/{id}:
+    get:
+      tags:
+      - countries
+      summary: Find countries By Id
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer Token
+        required: true
+        type: string
+        format: "Bearer {token}"
+      - name: id
+        in: path
+        description: countries Id
+        required: true
+        type: string  
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            $ref: '#/definitions/countries'          
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [PUT] countries/admin/id
+    put:
+      tags:
+      - countries
+      summary: Update countries By Id
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer Token
+        required: true
+        type: string
+        format: "Bearer {token}"
+      - name: id
+        in: path
+        description: countries Id
+        required: true
+        type: string
+      - name: body
+        in: body
+        description: countries Data
+        required: true
+        schema:
+          $ref: '#/definitions/countries'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [DELETE] /countries/admin/id
+    delete:
+      tags:
+      - countries
+      summary: Delete countries By Id
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer Token
+        required: true
+        type: string
+        format: "Bearer {token}"
+      - name: id
+        in: path
+        description: countries Id
+        required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# definitions
+definitions:
+  countries:
+    type: object
+    required:
+        - title
+        - description
+        - countries_images
+    properties:
+      _id:
+        description: countries Id
+      title:
+        type: string
+        example: 'title'
+        description: countries title
+      description:
+        type: string
+        example: 'description'
+        description: countries description
+      countries_images:
+        type: array
+        items:
+          type: object
+          properties:
+            url:
+              type: string
+              example: 'https://cloudinary/imageUrl'
+              description: URL of the flag image
+            public_id:
+              type: string
+              example: 'publicId'
+              description: Public ID of the image
+        description: countries countries_images        
+
+schemes:
+ - https
+ - http 
+
