@@ -1,7 +1,7 @@
 {
-  "name": "redux-script-saga",
-  "version": "1.0.8",
-  "description": "to generate code files for async API calls and Redux store slices based on the provided titles,The first argument specifies the desired action",
+  "name": "swagger-docs-maker",
+  "version": "1.0.0",
+  "description": "Effortlessly create comprehensive Swagger documentation for Node.js projects using the swagger-docs-maker package.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -15,20 +15,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ARSHADAMEEN00/redux-script-saga.git"
+    "url": "git+https://github.com/mishabp9633/swagger-docs-npm.git"
   },
   "keywords": [
     "automation",
-    "redux",
-    "redux-toolkit",
-    "scripts",
+    "swagger",
+    "openAPI",
+    "API documentation",
     "auto generate codes",
-    "crud builder"
+    "Node.js",
+    "API management"
   ],
-  "author": "Ameen Arshad Nediya",
+  "author": "Mohammed Mishab",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ARSHADAMEEN00/redux-script-saga/issues"
+    "url": "https://github.com/mishabp9633/swagger-docs-npm.git/issues"
   },
-  "homepage": "https://github.com/ARSHADAMEEN00/redux-script-saga#readme"
+  "homepage": "https://github.com/mishabp9633/swagger-docs-npm.git#readme"
 }
