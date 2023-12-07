@@ -1,48 +1,43 @@
-# [Swagger-Docs-Maker](https://www.npmjs.com/package/redux-script?activeTab=readme)
+# [Swagger-Docs-Maker](https://www.npmjs.com/package/swagger-docs-maker?activeTab=readme)
 
-**redux-script-saga** is a tool for generating code files for async API calls and Redux store slices based on provided titles. It simplifies the process of automating code generation, especially when working with Redux and async API calls.
+**swagger-docs-maker** Creating API documentation with Swagger can often be cumbersome due to its indentation and repetitive use. swagger-docs-maker is a solution designed to streamline the process of creating API documentation using Swagger.
+
+Developers often face challenges in maintaining consistent indentation and repetitive structures while documenting APIs with Swagger. This package simplifies and automates the process, allowing you to generate Swagger documentation effortlessly.
 
 ## Installation
 
-You can install **redux-script-saga** globally or locally within your project.
+You can install **swagger-docs-maker** globally or locally within your project.
 
 ### Global Installation
 
-To install **redux-script-saga** globally, use the following command:
+To install **swagger-docs-maker** globally, use the following command:
 
 ```bash
-npm install -g redux-script-saga
+npm install -g swagger-docs-maker
 ```
 
 Local Installation
-To install redux-script-saga locally within your project, use the following command:
+To install swagger-docs-maker locally within your project, use the following command:
 
 ```bash
-npm install redux-script-saga
+npm install swagger-docs-maker
 ```
 
 ## Usage
 
-1. redux-script-saga [action] [options] <br />
+1. swagger-docs-maker [action] <br />
 
    [action] (required): Specify the desired action. This can be the title of the code files you want to generate.
-   [options] (optional): You can provide additional options as needed.
 
 ### Examples
 
-Generate code files for a product:
+Generate code files for a user:
 
 ```bash
-redux-script-saga Product
+swagger-docs-maker users
 ```
 
-Generate code files for a user inside a specific folder:
-
-```bash
-redux-script-saga User inside myFolder
-```
-
-Make sure you have the required dependencies and configurations in place before running the Redux-Script-Saga command. Refer to the documentation or examples provided by Redux-Script-Saga for more details.
+Make sure you have the required dependencies and configurations in place before running the Swagger-Docs-Maker command. Refer to the documentation or examples provided by Swagger-Docs-Maker for more details.
 
 <hr />
 
@@ -52,51 +47,31 @@ This project is licensed under the Apache-2.0 License. See the LICENSE file for 
 
 ### Issues
 
-If you encounter any issues or have any suggestions for improvement, please report them on the [issue tracker](https://github.com/ARSHADAMEEN00/redux-script-saga#readme)
+If you encounter any issues or have any suggestions for improvement, please report them on the [issue tracker](https://github.com/mishabp9633/swagger-docs-maker/blob/master/README.md)
 
 ### Contributing
 
-Contributions are welcome! If you would like to contribute to Redux-Script-Saga, please follow the guidelines in the [CONTRIBUTING](https://github.com/ARSHADAMEEN00/redux-script-saga#readme) file.
+Contributions are welcome! If you would like to contribute to Swagger-Docs-Maker, please follow the guidelines in the [CONTRIBUTING](https://github.com/mishabp9633/swagger-docs-maker/blob/master/README.md) file.
 
 ### Acknowledgements
 
-Special thanks to Ameen Arshad Nediya for creating and maintaining Redux-Script.
+Special thanks to Mohammed Mishab for creating and maintaining Swagger-Docs-Maker.
 
 ### Additional Resources
 
-. [Documentation](https://www.npmjs.com/package/redux-script-saga?activeTab=readme)
-. [GitHub Repository](https://github.com/ARSHADAMEEN00/redux-script-saga)
+. [Documentation](https://www.npmjs.com/package/swagger-docs-maker?activeTab=readme)
+. [GitHub Repository](https://github.com/mishabp9633/swagger-docs-maker)
 
 <hr />
 
 ### know more
 
-to generate code files for async API calls and Redux store slices based on the provided titles. Let's break down the code and describe its function:
+Swagger-Docs-Maker streamlines API documentation generation for Node.js projects by simplifying Swagger implementation:
 
-The script accepts command-line arguments to determine its behavior. It expects two arguments:
+It enables swift initiation via command-line input, instantly creating a 'swagger-docs' directory and generating unique Swagger files based on provided names. These files house standardized CRUD operations (Create, Read, Update, Delete) within a Swagger template, tailored to the specified documentation name.
 
-The first argument specifies the desired action. It can be "all" to run both functions (asyncApis and reduxStore), "api" to run asyncApis only, or "store" to run reduxStore only.
-The second argument provides a comma-separated list of titles for file generation.
-If an invalid command or no titles are provided, the script displays an error message and exits.
+Additionally, the package automatically creates a structured schema based on the provided name, including properties such as 'title', 'description', and 'user_images' within the Swagger file.
 
-The script defines several code templates for generating async API-related code and Redux store code.
+Overall, Swagger-Docs-Maker automates Swagger-based API documentation setup, empowering developers to effortlessly create consistent, detailed documentation for their Node.js projects.
 
-The asyncApis function generates code files for async API calls based on the provided titles:
 
-For each title, it creates a file with the title as the name (e.g., "SomeTitle.js").
-The file includes code templates for creating async thunk functions for CRUD operations (create, update, get, delete) related to the specified title.
-The generated code includes API endpoints, error handling, and dispatching of relevant actions.
-The reduxStore function generates code files for Redux store slices based on the provided titles:
-
-For each title, it creates a file with the title converted to lowercase as the name (e.g., "sometitle.js").
-The file includes code templates for defining a Redux store slice with initial state, reducers, and extra reducers for async API actions related to the specified title.
-The writeFile function is a helper function used to write the generated code to the appropriate file. It handles file creation or replacement depending on whether the file already exists.
-
-The createFolderIfNotExists function is another helper function used to create necessary folders for the generated files.
-
-The createFoldersAndFiles function is the main entry point of the script:
-
-It checks the provided command and executes the corresponding functions
-(asyncApis, reduxStore, or both) based on the command-line arguments.
-It also handles folder creation and displays success or error messages for each generated file.
-Overall, this script provides a convenient way to generate code files for async API calls and Redux store slices based on the provided titles. It automates the process of creating boilerplate code for common operations and can save time when setting up API integration and Redux state management in a project

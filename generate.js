@@ -5,10 +5,14 @@ const templates = require("./Templates/templates");
 
 
 const createCodeSwaggerFile = (fileName, folderName, code) => {
-  const filePath = path.join(folderName, fileName+'.swagger.yaml');
- console.log({filePath});
- console.log({fileName});
- console.log({folderName});
+  
+let FileName = fileName;
+if (FileName.endsWith('s')) {
+  FileName = FileName.slice(0, -1); // Remove the last character
+}
+
+// Construct the filePath with the corrected file name
+const filePath = path.join(folderName, FileName + '.swagger.yaml');
   try {
     fs.writeFileSync(filePath, code, { flag: 'w' });
     console.log(`File updated: ${fileName}`);

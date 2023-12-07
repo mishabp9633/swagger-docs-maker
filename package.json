@@ -1,6 +1,6 @@
 {
   "name": "swagger-docs-maker",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Effortlessly create comprehensive Swagger documentation for Node.js projects using the swagger-docs-maker package.",
   "main": "index.js",
   "scripts": {
